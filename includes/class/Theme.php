@@ -186,13 +186,13 @@
 
             if (!empty($stylesheets))
                 $stylesheets = '<link rel="stylesheet" href="'.
-                               implode('" type="text/css" media="screen" charset="utf-8" /'."\n\t\t".'<link rel="stylesheet" href="', $stylesheets).
-                               '" type="text/css" media="screen" charset="utf-8" />';
+                               implode('" type="text/css" media="screen" /'."\n\t\t".'<link rel="stylesheet" href="', $stylesheets).
+                               '" type="text/css" media="screen" />';
             else
                 $stylesheets = "";
 
             if (file_exists(THEME_DIR."/style.css"))
-                $stylesheets = '<link rel="stylesheet" href="'.THEME_URL.'/style.css" type="text/css" media="screen" charset="utf-8" />'."\n\t\t";
+                $stylesheets = '<link rel="stylesheet" href="'.THEME_URL.'/style.css" type="text/css" media="screen" />'."\n\t\t";
 
             if (!file_exists(THEME_DIR."/stylesheets/") and !file_exists(THEME_DIR."/css/"))
                 return $stylesheets;
@@ -215,7 +215,7 @@
                 elseif (preg_match("/(lte?|gte?)ie([0-9\.]+)\.css/", $file, $matches))
                     $stylesheets.= "<!--[if ".$matches[1]." IE ".$matches[2]."]>";
 
-                $stylesheets.= '<link rel="stylesheet" href="'.$config->chyrp_url.$path.'" type="text/css" media="'.($file == "print.css" ? "print" : "screen").'" charset="utf-8" />';
+                $stylesheets.= '<link rel="stylesheet" href="'.$config->chyrp_url.$path.'" type="text/css" media="'.($file == "print.css" ? "print" : "screen").'" />';
 
                 if ($file == "ie.css" or preg_match("/(lt|gt)?ie([0-9\.]+)\.css/", $file))
                     $stylesheets.= "<![endif]-->";
