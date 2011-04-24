@@ -1,9 +1,6 @@
 <?php
     require_once "common.php";
 
-    if (ini_get("memory_limit") < 48)
-        ini_set("memory_limit", "48M");
-
     if (!function_exists("gd_info"))
         exit("GD not installed; image cannot be resized.");
 
